@@ -25,13 +25,16 @@ class Bus {
 private:
     int number;
     Route* busRoute;
+    static int howManyBuses;
 
 public:
     Bus(int n) : number(n), busRoute(nullptr) {
+        howManyBuses++;
         cout << "Автобус с номером " << n << " создан" << endl;
     }
 
     ~Bus() {
+        howManyBuses--;
         cout << "Автобус удалён" << endl;
     }
 
@@ -48,6 +51,7 @@ class Depot {
 private:
     static Depot* instance;
     vector<Bus*> buses;
+    static int busesCounter;
 
     Depot() {}
 
@@ -66,6 +70,8 @@ public:
         buses.push_back(b);
     }
 };
+
+int Bus::howManyBuses = 0;
 
 Depot* Depot::instance = nullptr;
 
