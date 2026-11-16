@@ -19,7 +19,7 @@
 
 **Код к заданию:**
 
-```сpp
+```с++
 #include <iostream>
 #include <stdexcept>
 #include <vector>
